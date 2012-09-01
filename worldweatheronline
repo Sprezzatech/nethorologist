@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+# http://www.worldweatheronline.com/time-zone-api.aspx
+# query form: http://www.worldweatheronline.com/time-zone-api.aspx?key=APIKEY&q=LOCATION
+
+API="http://www.worldweatheronline.com/feed/tz.ashx?"
+APIKEY="key=b8d76ada5d230232120109"
+XMLGET=curl
+QUERY="`./getegress`"
+
+"$XMLGET" "$API$APIKEY""q=$QUERY"
