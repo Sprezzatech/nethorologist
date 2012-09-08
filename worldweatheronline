@@ -10,4 +10,4 @@ APIKEY="key=b8d76ada5d230232120109"
 XMLGET=curl
 QUERY="`./getegress`"
 
-"$XMLGET" "$API$APIKEY""q=$QUERY"
+"$XMLGET" -v "$API$APIKEY&q=$QUERY"

@@ -8,11 +8,13 @@ AGENT="Mozilla/5.0 (Windows NT 6.1; WOW64; rv:12.0) Gecko/20100101 Firefox/12.0"
 # Helper script to determine our network egress point
 
 # whatismyip.com http://www.whatismyip.com/faq/automation.asp
-echo -n "Querying whatismyip.com..."
+echo -n "Querying whatismyip.com..." >&2
 EGRESS="`curl -A \"$AGENT\" http://automation.whatismyip.com/n09230945.asp`"
-echo "done: $EGRESS"
+echo "done: $EGRESS" >&2
+echo "$EGRESS"
 
 # ifconfig.me
-echo -n "Querying ifconfig.me..."
+echo -n "Querying ifconfig.me..." >&2
 EGRESS="`curl ifconfig.me`"
-echo "done: $EGRESS"
+echo "done: $EGRESS" >&2
+echo "$EGRESS"
