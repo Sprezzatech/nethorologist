@@ -1,0 +1,36 @@
+#!/bin/sh
+
+set -e
+
+
+usage () { echo "usage: `basename $0` --tz | --cc | --help" ; return 0 ; }
+usageerr () { usage >&2 ; return 1 ; }
+
+USETZ=0
+USECC=0
+
+set -- $(getopt -l cc,help,tz "" "$@")
+while [ $# -gt 0 ] ; do
+	case "$1" in
+		--tz)
+			USETZ=1
+			;;
+		--cc)
+			USECC=1
+			;;
+		--help)
+			usage
+			exit 0
+			;;
+		--)
+			break
+			;;
+		*)
+			usageerr
+			;;
+	esac
+	shift
+done
+if [ $USETZ -eq 0 -a $USECC -eq 0 ] ; then
+	usageerr
+fi

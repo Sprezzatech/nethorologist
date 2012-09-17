@@ -18,8 +18,8 @@ available. There are multiple means, listed in order of preference:
 use
 ===
 
-Run nethorologist.
-
+Run nethorologist --tz to get time zone output.
+Run nethorologist --cc to get country code output.
 
 components
 ==========
