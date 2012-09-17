@@ -9,8 +9,10 @@ usageerr () { usage >&2 ; return 1 ; }
 USETZ=0
 USECC=0
 
+export HOROBIN=""
+
 gettz () {
-	./ipinfodb 2> /dev/null
+	"$HOROBIN"ipinfodb 2> /dev/null
 }
 
 getcc () {

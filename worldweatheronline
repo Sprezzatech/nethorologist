@@ -8,6 +8,6 @@ set -e
 API="http://www.worldweatheronline.com/feed/tz.ashx?"
 APIKEY="key=b8d76ada5d230232120109"
 XMLGET=curl
-QUERY="`./getegress`"
+QUERY="`\"$HOROBIN\"getegress`"
 
 "$XMLGET" -v "$API$APIKEY&q=$QUERY"
