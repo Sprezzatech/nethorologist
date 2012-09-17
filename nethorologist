@@ -9,6 +9,16 @@ usageerr () { usage >&2 ; return 1 ; }
 USETZ=0
 USECC=0
 
+gettz () {
+	./ipinfodb 2> /dev/null
+}
+
+getcc () {
+	echo "Not yet implemented, sorry" >&2
+	# just get -t -c //countryCode from ipinfodb
+	return 1
+}
+
 set -- $(getopt -l cc,help,tz "" "$@")
 while [ $# -gt 0 ] ; do
 	case "$1" in
@@ -33,4 +43,10 @@ while [ $# -gt 0 ] ; do
 done
 if [ $USETZ -eq 0 -a $USECC -eq 0 ] ; then
 	usageerr
+fi
+if [ $USETZ -ne 0 ] ; then
+	gettz
+fi
+if [ $USECC -ne 0 ] ; then
+	getcc
 fi
