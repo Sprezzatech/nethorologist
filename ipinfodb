@@ -5,8 +5,8 @@ set -e
 # http://www.ipinfodb.com/ip_location_api.php
 # query form: http://www.ipinfodb.com/
 
-API="http://api.ipinfodb.com/v3/ip-city/?key="
+API="http://api.ipinfodb.com/v3/ip-city?key="
 APIKEY="eb6f1e5a602904aa9e870d8f31c96b993ac381852b186e887ef98cb5c0ffc6bc"
 XMLGET=curl
 
-"$XMLGET" -v "$API$APIKEY&format=xml"
+"$XMLGET" "$API$APIKEY&format=xml"
