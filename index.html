@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Nethorologist : nethorologist -- gps and network-based localization/tzconfig" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Nethorologist</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/Sprezzatech/nethorologist">View on GitHub</a>
+
+          <h1 id="project_title">Nethorologist</h1>
+          <h2 id="project_tagline">nethorologist -- gps and network-based localization/tzconfig</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/Sprezzatech/nethorologist/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Sprezzatech/nethorologist/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p><img src="https://www.sprezzatech.com/wiki/images/4/46/Nethorologist.png" alt="nethorologist logo"></p>
+
+<h1>nethorologist</h1>
+
+<p>A program to divine the current time zone, using whatever methods are
+available. There are multiple means, listed in order of preference:</p>
+
+<ul>
+<li>Time zone information directly from an attached, live GPS</li>
+<li>Querying network time zone services using geolocation information from an
+attached, live GPS</li>
+<li>Querying network geolocation services using discovered wireless networks
+from an attached, live radio, then using this information to query network
+time zone services</li>
+<li>Querying network time zone services using network information based on our
+point of network ingress (last outgoing NAT)</li>
+<li>Asking the user</li>
+</ul><h1>use</h1>
+
+<p>Run nethorologist --tz to get time zone output.
+Run nethorologist --cc to get country code output.</p>
+
+<h1>components</h1>
+
+<p>"getegress" -- determine our egress address using:
+    * whatismyip.com
+    * ipconfig.me
+    output: a list of ip addresses. each represents some service's concept
+        of our globally routable source address.</p>
+
+<p>"worldweatheronline" -- determine timezone based off ip address using
+    * worldweatheronline.com
+    output: XML
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        IP65.182.57.2052012-09-08 03:38-4.0
+    requires: egress IP</p>
+
+<p>"ipinfodb" -- determine timezone based off ip address using
+    * ipinfodb (<a href="http://www.ipinfodb.com/ip_location_api.php">http://www.ipinfodb.com/ip_location_api.php</a>)
+    output: XML
+        &lt;?xml version="1.0" encoding="UTF-8"?&gt;
+        OK65.182.57.205USUNITED STATESGEORGIAATLANTA3030833.749-84.388-04:00
+    requires: nothing
+    <a href="http://api.ipinfodb.com/v3/ip-city/?key=">http://api.ipinfodb.com/v3/ip-city/?key=</a>&amp;ip=74.125.45.100</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Nethorologist maintained by <a href="https://github.com/Sprezzatech">Sprezzatech</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
