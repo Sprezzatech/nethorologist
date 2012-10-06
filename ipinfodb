@@ -8,14 +8,7 @@ set -e
 API="http://api.ipinfodb.com/v3/ip-city?key="
 APIKEY="eb6f1e5a602904aa9e870d8f31c96b993ac381852b186e887ef98cb5c0ffc6bc"
 XMLGET=curl
-XML=`which xmlstarlet 2> /dev/null`
-if [ -n "$XML" ] ; then
-	XML=`which xml 2> /dev/null`
-	if [ -n "$XML" ] ; then
-		echo "Found neither xml nor xmlstarlet on path, exiting" >&2
-		exit 1
-	fi
-fi
+XML=xml
 
 usage () { echo "usage: `basename $0` [ -v ] " ; return 0 ; }
 usageerr () { usage >&2 ; return 1 ; }
