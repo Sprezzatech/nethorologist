@@ -9,7 +9,7 @@ usageerr () { usage >&2 ; return 1 ; }
 USETZ=0
 USECC=0
 
-export HOROBIN=""
+export HOROBIN="`dirname $0`"
 
 gettz () {
 	"$HOROBIN"ipinfodb 2> /dev/null
